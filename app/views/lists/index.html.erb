@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+<div class="flex-group" >
+  <h1>Lists</h1>
+  <%= search_form_for @q, url: lists_path, class:"list-search" do |f| %>
+    <%= f.label :title_cont, "Title Search" %>
+    <%= f.search_field :title_cont %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
+<%= link_to "New list", new_list_path %>
+<div id="lists">
+  <% @lists.each do |list| %>
+    <%= link_to list  do%>
+      <div class="card">
+        <%= render list %>
+      </div>
+    <% end %>
+    <p>
+      <%= link_to "Edit this List", edit_list_path(list) %>
+    </p>
+  <% end %>
+</div>

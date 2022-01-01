@@ -1,0 +1,23 @@
+<%= form_with(model: list) do |form| %>
+  <% if list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+      <ul>
+        <% list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+  <%= form.fields_for :list_leads do |list_lead_fields| %>
+    <%= list_lead_fields.check_box :_destroy %>
+    <%= list_lead_fields.label :name %>
+  <% end %>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

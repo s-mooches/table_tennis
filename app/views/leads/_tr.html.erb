@@ -1,0 +1,22 @@
+<tr>
+  <td>
+    <%= index += 1 %>
+  </td>
+  <td>
+    <%= link_to lead_path(lead), style: "text-decoration: none" do %>
+      <%= lead.name.humanize %>
+    <% end %>
+  </td>
+  <td><%= lead.email %></td>
+  <td><%= lead.gender %></td>
+  <td><%= lead.hobby %></td>
+  <td>
+    <%= link_to "Edit", edit_lead_path(lead) %>
+  </td>
+  <td>
+    <%= link_to "Show", lead_path(lead) %>
+  </td>
+  <td>
+    <%= button_to "Destroy", lead, method: :delete %>
+  </td>
+</tr>

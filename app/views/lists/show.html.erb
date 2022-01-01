@@ -1,0 +1,12 @@
+<h1>List: <%= @list.title%> </h1>
+<div class="table-container" >
+  <%== pagy_nav(@pagy) %>
+  <div class="flex-group">
+    <%= search_form_for @q, url: leads_path, class: "input-group" do |f| %>
+      <%= f.label :name_or_gender_or_email_or_hobby_cont, "Email/Name" %>
+      <%= f.search_field :name_or_gender_or_email_or_hobby_cont %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <%= render "leads/table", { q: @q, leads: @leads } %>
+</div>
